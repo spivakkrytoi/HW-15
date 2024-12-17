@@ -16,10 +16,10 @@ body {
 
 .holder {
   display: flex;
-  flex-wrap: wrap; /* Дозволяє елементам переноситися */
-  align-content: flex-end; /* Розташування внизу контейнера */
+  flex-wrap: wrap;
+  align-content: flex-end;
   width: 600px;
-  height: 60px;
+  height: 205px;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   border: 3px solid black;
@@ -30,24 +30,30 @@ body {
   justify-content: center;
   align-items: center;
   font-size: 24px;
+  height: 100px;
   font-weight: bold;
   color: rgb(0, 0, 0);
 }
 
 .item:nth-child(1),
-.item:nth-child(2) {
-  flex: 0 0 50%; /* Займають половину ширини контейнера */
+.item:nth-child(5) {
+  flex: 0 0 50%; 
+}
+.item:nth-child(1){
   background-color: #ff6b6b;
+  order: -9;
 }
 
 .item:nth-child(2) {
   background-color: #4d94ff;
+  flex-grow: 1;
+  order: 1;
 }
 
 .item:nth-child(3),
 .item:nth-child(4),
 .item:nth-child(5) {
-  flex-grow: 1; /* Рівномірно розподіляють доступний простір */
+  flex-grow: 1;
 }
 
 .item:nth-child(3) {
@@ -56,8 +62,10 @@ body {
 
 .item:nth-child(4) {
   background-color: #28a745;
+  order: 2;
 }
 
 .item:nth-child(5) {
   background-color: #ffc107;
+  order: -8;
 }
