@@ -1,3 +1,9 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -9,15 +15,14 @@ body {
 }
 
 .holder {
-  display: grid;
-  grid-template-areas:
-    "item1 item1 item5 item5"
-    "item3 item3 item2 item4";
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  display: flex;
+  flex-wrap: wrap; /* Дозволяє елементам переноситися */
+  align-content: flex-end; /* Розташування внизу контейнера */
   width: 600px;
-  height: 300px;
-  border: 5px solid black;
+  height: 60px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border: 3px solid black;
 }
 
 .item {
@@ -26,30 +31,33 @@ body {
   align-items: center;
   font-size: 24px;
   font-weight: bold;
-  color: white;
+  color: rgb(0, 0, 0);
 }
 
-.item:nth-child(1) {
-  grid-area: item1;
+.item:nth-child(1),
+.item:nth-child(2) {
+  flex: 0 0 50%; /* Займають половину ширини контейнера */
   background-color: #ff6b6b;
 }
 
 .item:nth-child(2) {
-  grid-area: item2;
   background-color: #4d94ff;
 }
 
+.item:nth-child(3),
+.item:nth-child(4),
+.item:nth-child(5) {
+  flex-grow: 1; /* Рівномірно розподіляють доступний простір */
+}
+
 .item:nth-child(3) {
-  grid-area: item3;
   background-color: #9b59b6;
 }
 
 .item:nth-child(4) {
-  grid-area: item4;
   background-color: #28a745;
 }
 
 .item:nth-child(5) {
-  grid-area: item5;
   background-color: #ffc107;
 }
